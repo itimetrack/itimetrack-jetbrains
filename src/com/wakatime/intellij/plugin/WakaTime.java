@@ -47,9 +47,9 @@ import org.apache.log4j.Level;
 public class WakaTime implements ApplicationComponent {
 
     public static final String VERSION = "7.0.5";
-    public static final String CONFIG = ".wakatime.cfg";
+    public static final String CONFIG = ".itimetrack.cfg";
     public static final BigDecimal FREQUENCY = new BigDecimal(2 * 60); // max secs between heartbeats for continuous coding
-    public static final Logger log = Logger.getInstance("WakaTime");
+    public static final Logger log = Logger.getInstance("iTimeTrack");
 
     public static String IDE_NAME;
     public static String IDE_VERSION;
@@ -68,7 +68,7 @@ public class WakaTime implements ApplicationComponent {
     }
 
     public void initComponent() {
-        log.info("Initializing WakaTime plugin v" + VERSION + " (https://wakatime.com/)");
+        log.info("Initializing iTimeTrack plugin v" + VERSION + " (https://itimetrack.com/)");
         //System.out.println("Initializing WakaTime plugin v" + VERSION + " (https://wakatime.com/)");
 
         // Set runtime constants
@@ -90,7 +90,7 @@ public class WakaTime implements ApplicationComponent {
             setupEventListeners();
             setupQueueProcessor();
             checkDebug();
-            log.info("Finished initializing WakaTime plugin");
+            log.info("Finished initializing iTimeTrack plugin");
 
         } else {
 
@@ -108,12 +108,12 @@ public class WakaTime implements ApplicationComponent {
                         setupEventListeners();
                         setupQueueProcessor();
                         checkDebug();
-                        log.info("Finished initializing WakaTime plugin");
+                        log.info("Finished initializing iTimeTrack plugin");
 
                     } else {
                         ApplicationManager.getApplication().invokeLater(new Runnable(){
                             public void run(){
-                                Messages.showErrorDialog("WakaTime requires Python to be installed.\nYou can install it from https://www.python.org/downloads/\nAfter installing Python, restart your IDE.", "Error");
+                                Messages.showErrorDialog("iTimeTrack requires Python to be installed.\nYou can install it from https://www.python.org/downloads/\nAfter installing Python, restart your IDE.", "Error");
                             }
                         });
                     }
@@ -187,7 +187,7 @@ public class WakaTime implements ApplicationComponent {
             public void run() {
                 ActionManager am = ActionManager.getInstance();
                 PluginMenu action = new PluginMenu();
-                am.registerAction("WakaTimeApiKey", action);
+                am.registerAction("iTimeTrackApiKey", action);
                 DefaultActionGroup menu = (DefaultActionGroup) am.getAction("ToolsMenu");
                 menu.addSeparator();
                 menu.add(action);
@@ -198,7 +198,7 @@ public class WakaTime implements ApplicationComponent {
     private void checkDebug() {
         if (WakaTime.DEBUG) {
             try {
-                Messages.showWarningDialog("Running WakaTime in DEBUG mode. Your IDE may be slow when saving or editing files.", "Debug");
+                Messages.showWarningDialog("Running iTimeTrack in DEBUG mode. Your IDE may be slow when saving or editing files.", "Debug");
             } catch (NullPointerException e) { }
         }
     }
@@ -447,6 +447,6 @@ public class WakaTime implements ApplicationComponent {
 
     @NotNull
     public String getComponentName() {
-        return "WakaTime";
+        return "iTimeTrack";
     }
 }

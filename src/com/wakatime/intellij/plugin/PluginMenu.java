@@ -15,7 +15,7 @@ import com.intellij.openapi.project.Project;
 
 public class PluginMenu extends AnAction {
     public PluginMenu() {
-        super("WakaTime Settings");
+        super("iTimeTrack Settings");
         // super("WakaTime Settings", "", IconLoader.getIcon("/Mypackage/icon.png"));
     }
     public void actionPerformed(AnActionEvent e) {

@@ -28,7 +28,7 @@ public class Settings extends DialogWrapper {
 
     public Settings(@Nullable Project project) {
         super(project, true);
-        setTitle("WakaTime Settings");
+        setTitle("iTimeTrack Settings");
         setOKButtonText("Save");
         panel = new JPanel();
         panel.setLayout(new GridLayout(0,2));

@@ -53,7 +53,7 @@ public class Dependencies {
                 Dependencies.resourcesLocation = resourcesFolder.getAbsolutePath();
             } else {
                 File userHomeDir = new File(System.getProperty("user.home"));
-                File resourcesFolder = new File(userHomeDir, ".wakatime");
+                File resourcesFolder = new File(userHomeDir, ".itimetrack");
                 Dependencies.resourcesLocation = resourcesFolder.getAbsolutePath();
             }
         }
@@ -178,7 +178,7 @@ public class Dependencies {
     }
 
     public static String latestCliVersion() {
-        String url = "https://raw.githubusercontent.com/wakatime/wakatime/master/wakatime/__about__.py";
+        String url = "https://raw.githubusercontent.com/itimetrack/itimetrack/master/wakatime/__about__.py";
         try {
             String aboutText = getUrlAsString(url);
             Pattern p = Pattern.compile("__version_info__ = \\('([0-9]+)', '([0-9]+)', '([0-9]+)'\\)");
@@ -193,7 +193,7 @@ public class Dependencies {
     }
 
     public static String getCLILocation() {
-        return combinePaths(Dependencies.getResourcesLocation(), "wakatime-master", "wakatime", "cli.py");
+        return combinePaths(Dependencies.getResourcesLocation(), "itimetrack-master", "wakatime", "cli.py");
     }
 
     public static void installCLI() {
@@ -201,8 +201,8 @@ public class Dependencies {
         if (!cli.getParentFile().getParentFile().getParentFile().exists())
             cli.getParentFile().getParentFile().getParentFile().mkdirs();
 
-        String url = "https://codeload.github.com/wakatime/wakatime/zip/master";
-        String zipFile = combinePaths(cli.getParentFile().getParentFile().getParentFile().getAbsolutePath(), "wakatime-cli.zip");
+        String url = "https://codeload.github.com/itimetrack/itimetrack/zip/master";
+        String zipFile = combinePaths(cli.getParentFile().getParentFile().getParentFile().getAbsolutePath(), "itimetrack-master.zip");
         File outputDir = cli.getParentFile().getParentFile().getParentFile();
 
         // download wakatime-master.zip file

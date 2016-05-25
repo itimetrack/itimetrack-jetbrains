@@ -23,7 +23,7 @@ public class ApiKey extends DialogWrapper {
 
     public ApiKey(@Nullable Project project) {
         super(project, true);
-        setTitle("WakaTime API Key");
+        setTitle("iTimeTrack API Key");
         setOKButtonText("Save");
         panel = new JPanel();
         input = new JTextField(36);
